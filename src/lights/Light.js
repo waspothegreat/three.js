@@ -13,7 +13,7 @@ class Light extends Object3D {
 
 		this.color = new Color( color );
 		this.intensity = intensity;
-
+		this.colorContribution = true; 
 	}
 
 	dispose() {
@@ -28,6 +28,7 @@ class Light extends Object3D {
 
 		this.color.copy( source.color );
 		this.intensity = source.intensity;
+		this.colorContribution = source.colorContribution;
 
 		return this;
 
@@ -39,6 +40,7 @@ class Light extends Object3D {
 
 		data.object.color = this.color.getHex();
 		data.object.intensity = this.intensity;
+		data.object.colorContribution = this.colorContribution;
 
 		if ( this.groundColor !== undefined ) data.object.groundColor = this.groundColor.getHex();
 
